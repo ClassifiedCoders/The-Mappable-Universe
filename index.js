@@ -1,5 +1,11 @@
 const express = require('express');
 const app = express();
+const WSServer = require("ws").Server;
+var serv = require("http").createServer(app);
+var wss = new WSServer({server:serv});
+wss.on("connection",()=>{
+  console.log("ok");
+});
 
 const ejs = require('ejs');
 
@@ -9,12 +15,12 @@ const server = new srnet();
 app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
 
-app.use(express.static('public'));
+app.use(express.static('static'));
 
 app.use("/",require('./utilities/router.js'));
 
 app.use("/server",server);
-app.listen(65515, () => {
+serv.listen(65515, () => {
   const client = require("srnet-client");
   const cli = new client("https://the-mappable-universe.classcoders.repl.co/server");
 
