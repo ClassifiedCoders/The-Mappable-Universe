@@ -20,21 +20,17 @@ span {
 }
 
 input {
-  padding: 8px;
+  padding: 6px;
   border: hidden;
   color: black;
   font-family: Roboto;
   border-radius: 8px;
-  font-family: Roboto;
-  font-size: 14px;
+  font-size: 18px;
+  text-align: center;
 }
 
 input:focus {
 	background: #fcfcfc;
-}
-
-input::value {
-	text-align: center;
 }
 
 #title-screen {
