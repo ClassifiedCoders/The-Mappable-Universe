@@ -5,7 +5,13 @@ const ejs = require('ejs');
 
 const srnet = require("srnet-server");
 const server = new srnet();
-
+setInterval(()=>{
+  server._.sockets.map(x=>x.socket).forEach(x=>{
+    if(x.readyState == "open"){
+      x.write("#109 PING -> PING\r\n");
+    }
+  });
+},1000);
 app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
 

@@ -3,10 +3,23 @@ function Client(){
     this["on" + i] = function(){};
   }
   this.es = new EventSource("/sse");
-  this.es.onmessage = d=>{
+  this.es.onmessage = (d)=>{
     d = JSON.parse(d.data);
     if(d.type == "connection"){
+      this.connected = true;
+      this.id = d.YourID;
+      this.send = (opcode,data)=>{
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST","/sse?id=" + this.id);
+        xhr.send(JSON.stringify({
+          opcode,
+          data
+        }));
+      };
       this.onopen(d.YourID);
+    }else if(d.type == "data"){
+      if(d.data.statusText == "PING") return;
+      this.onmessage(d.data);
     }
   };
   this.connected = false;

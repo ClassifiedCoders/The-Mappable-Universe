@@ -53,11 +53,11 @@ input:focus {
   border-radius: 8px;
   margin-top: 8px;
   font-family: Akaya Telivigala;
-  transition: filter ease-in-out 2s;
+  transition: background-color ease-in-out 2s;
 }
 
 .button:hover {
-  filter: brightness(150%);
+  background-color: antiquewhite;
 }
 
 #solo {

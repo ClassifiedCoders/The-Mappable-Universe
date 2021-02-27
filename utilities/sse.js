@@ -18,6 +18,11 @@ rout.get("/",(req,res)=>{
     if(res.socket.readyState == "open") res.write("data:" + JSON.stringify({type:"connection",YourID:id}) + "\r\n\r\n");
   });
   cli.connect();
+  setInterval(()=>{
+    if(res.socket.readyState == "open"){
+      res.write("event:ping\r\ndata:ping\r\n\r\n");
+    }
+  },1000);
 });
 rout.post("/",(req,res)=>{
   if(clis[req.query.id]._cli.socket.readyState == "open"){
