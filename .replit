@@ -1,2 +1,2 @@
-language="node"
+lang="node"
 run = "npm start"

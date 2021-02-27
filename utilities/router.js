@@ -1,7 +1,8 @@
 const router = require('express').Router();
-
-const index_file = __dirname + "/static/views/index.html";
+const { RenderFile } = require('./util');
 
 router.get('/', (_, res) => {
-	res.sendFile(index_file);
+	RenderFile(res, 'index.html');
 });
+
+module.exports = router;

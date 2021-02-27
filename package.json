@@ -11,7 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "srnet-client": "^2.0.3",
     "srnet-server": "^2.0.2"
   }
 }
