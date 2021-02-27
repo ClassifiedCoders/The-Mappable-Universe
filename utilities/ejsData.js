@@ -1,5 +1,7 @@
 const ejsData = {};
 
-ejsData.helloWorld = "hi!";
+ejsData.srnet = `
+  <script src="/scripts/srnet.js"></script>
+`
 
 module.exports = ejsData;

@@ -1,23 +1,14 @@
-var es = new EventSource("/sse");
-es.onmessage = (d)=>{
-  if(JSON.parse(d.data).type == "connection"){
-    s(JSON.parse(d.data).YourID);
-  }
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST","/sse/log");
-  xhr.send(d.data);
-};
-function s(id){
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST","/sse?id=" + id);
-  xhr.send(JSON.stringify({
-    opcode: "0000000",
-    data: "yo"
-  }));
+var cli = new Client();
+cli.onopen = id=>{
+  
 }
+const usr = localStorage.getItem('username') || "Player";
 
 const username = document.getElementById('username-input');
-	
-username.addEventListener('keydown', e => {
-	document.getElemenyById('solo').innerHTML = username.value
+
+username.value = usr;
+
+username.addEventListener('change', e => {
+	const userName = document.getElementById('username-input');
+	localStorage.setItem('username', username.value)
 });
