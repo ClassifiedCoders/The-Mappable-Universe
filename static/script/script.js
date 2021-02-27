@@ -1,1 +1,5 @@
-var ws = new WebSocket("wss://the-mappable-universe.classcoders.repl.co");
+var es = new EventSource("/sse");
+es.onmessage = (d)=>{
+  var xhr = new XMLHttpRequest();
+  xhr.open("")
+};

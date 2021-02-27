@@ -2,6 +2,8 @@
 
 :root {
 	--deepblue: #04182e;
+	--neongreen: #14fa9e;
+	--hotpink: #f011d2;
 }
 
 body {
@@ -10,10 +12,29 @@ body {
   background: var(--deepblue);
   font-family: Roboto;
   color: white;
+  height: 100%;
 }
 
 span {
 	display: block;
+}
+
+input {
+  padding: 8px;
+  border: hidden;
+  color: black;
+  font-family: Roboto;
+  border-radius: 8px;
+  font-family: Roboto;
+  font-size: 14px;
+}
+
+input:focus {
+	background: #fcfcfc;
+}
+
+input::value {
+	text-align: center;
 }
 
 #title-screen {
@@ -26,6 +47,7 @@ span {
 }
 
 .center {
+  margin: auto;
   text-align: center;
 }
 
@@ -35,10 +57,24 @@ span {
   border-radius: 8px;
   margin-top: 8px;
   font-family: Akaya Telivigala;
-  background-color: var(--deepblue);
+  transition: filter ease-in-out 2s;
+}
+
+.button:hover {
+  filter: brightness(150%);
+}
+
+#solo {
+	background: var(--hotpink);
+}
+
+#multiplayer {
+	background: var(--neongreen);
+	color: black;
 }
 
 #game-options {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	position: fixed;
 	top: 50%;
 	left: 50%;
