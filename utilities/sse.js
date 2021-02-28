@@ -4,7 +4,12 @@ rout.use(require("express").text());
 var clis = {};
 rout.get("/",(req,res)=>{
   res.writeHead(200,{"Content-Type":"text/event-stream"});
-  var cli = new client("https://the-mappable-universe.classcoders.repl.co/server");
+  var cli = new client("https://the-mappable-universe.classcoders.repl.co/server-" + req.query.path);
+  res.socket.on("end",()=>{
+    if(cli._cli.socket.readyState == "open"){
+      cli.send("0000100","0");
+    }
+  });
   cli.on("notAsk",d=>{
     delete d.client;
     var a = {

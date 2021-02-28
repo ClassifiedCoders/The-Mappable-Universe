@@ -1,8 +1,9 @@
-function Client(){
+function Client(sn){
   for(var i of ["open","message","error"]){
     this["on" + i] = function(){};
   }
-  this.es = new EventSource("/sse");
+  this.where = sn;
+  this.es = new EventSource("/sse?path=" + sn);
   this.es.onmessage = (d)=>{
     d = JSON.parse(d.data);
     if(d.type == "connection"){

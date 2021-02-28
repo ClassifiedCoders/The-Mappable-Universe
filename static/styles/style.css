@@ -4,6 +4,7 @@
 	--deepblue: #04182e;
 	--neongreen: #14fa9e;
 	--hotpink: #f011d2;
+	--lemonyellow: #f8fc03;
 }
 
 body {
@@ -78,4 +79,38 @@ input:focus {
 	padding: 16px;
 	border-radius: 8px;
 	transform: translate(-50%, -50%);
+}
+
+#load_file_solo {
+  border: hidden;
+  border-radius: 8px;
+  background-color: var(--lemonyellow);
+}
+
+#solo-file-div {
+  width: 500px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: burlywood;
+}
+
+select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   /*appearance: none;*/       /* Remove default arrow */
+   /*background-image: url(...);*/   /* Add custom arrow */
+}
+
+#server {
+	width: 100%;
+	padding: 8px;
+	background: white;
+	font-size: 14px;
+	margin-top: 12px;
+	font-family: Roboto;
+	border: 1px solid lightgrey;
+}
+
+.error {
+  color: red;
 }

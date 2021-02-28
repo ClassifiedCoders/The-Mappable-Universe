@@ -1,1 +1,0 @@
-Idea is to make a fandom type website where users can map out fictional universes. or real ones even.
