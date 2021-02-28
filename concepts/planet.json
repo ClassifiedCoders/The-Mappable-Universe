@@ -1,0 +1,13 @@
+{
+  "general": {
+    "name": "Earth",
+    "size": "small",
+    "type": "rock",
+    "life": true
+  },
+  "dimensions": {
+    "height": 20,
+    "width": 20,
+    "circular": true
+  }
+}

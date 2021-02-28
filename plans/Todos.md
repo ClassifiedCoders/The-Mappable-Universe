@@ -24,4 +24,7 @@ Todos
 + [x] Make username system work
 + [ ] Universe map css overhaul
 + [ ] Design objects for game
+  + [x] Design Planets
+  + [ ] Design stars
+  + [ ] Design other astronomical objects
 + [ ] Consider road layouts

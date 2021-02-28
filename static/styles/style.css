@@ -10,7 +10,7 @@
 body {
 	padding: 0;
 	margin: 0;
-  background: var(--deepblue);
+  /*background: var(--deepblue);*/
   font-family: Roboto;
   color: white;
   height: 100%;

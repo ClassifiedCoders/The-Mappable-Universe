@@ -55,13 +55,3 @@ getId('solo').addEventListener('click', e => {
 getId('multiplayer').addEventListener('click', e => {
 	location.href = '/multiplayer';
 });
-
-var canvas = document.createElement("canvas");
-var ctx = canvas.getContext("2d");
-ctx.fillStyle = "#04182e";
-ctx.fillRect(0,0,1000,1000);
-ctx.fillStyle = "#fff";
-for(var i = 0; i < 100; i++){
-  ctx.fillRect(Math.floor(Math.random()*ctx.canvas.width),Math.floor(Math.random()*ctx.canvas.height),1,1);
-}
-document.body.background = "url(\"" + ctx.canvas.toDataURL() + "\")";
