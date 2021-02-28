@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+require('./utilities/firebase')
+
 const ejs = require('ejs');
 
 const srnet = require("srnet-server");
@@ -16,6 +18,8 @@ app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
 
 app.use(express.static('static'));
+
+
 
 app.use("/",require('./utilities/router.js'));
 app.use("/sse",require("./utilities/sse.js"));
