@@ -5,7 +5,10 @@ function getId(id) {
 const cli = new Client();
 
 cli.onopen = id =>{
-  console.log(window.info + "");
+  log("/server: SRNET Connection " + new Date().toUTCString() + "\n" +
+          "     Language: " + navigator.language + "\n" +
+          "     Platform: " + navigator.platform + "\n" +
+          "     Browser: " + navigator.userAgent.split(" ").last());
   //cli.send("0000000",id);
 };
 
