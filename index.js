@@ -4,11 +4,25 @@ const app = express();
 require('./utilities/firebase')
 
 const ejs = require('ejs');
-
+const User = require("./utilities/types/user.js");
 const srnet = require("srnet-server");
-var server_usa = new srnet();
-var server_asia = new srnet();
-var server_europe = new srnet();
+var list = {};
+var cmds = {
+  "0001000": (obj)=>{
+    list[obj.sender.socket.id] = new User(obj.chunk,obj.sender);
+    obj.sender.socket.write("#110 ALL -> " + Object.keys(list).filter(x=>list[x].cli.socket.readyState == "open").map(x=>x + ":" + list[x].name + ":" + list[x].x + ":" + list[x].y).join(",") + "\r\n");
+    obj.sockets.forEach(x=>{
+      if(x.socket.readyState == "open"){
+        if(x.socket.id != obj.sender.socket.id){
+          x.socket.write("#108 JOIN -> " + obj.sender.socket.id + ":" + obj.chunk + "0:0" + "\r\n");
+        }
+      }
+    });
+  }
+};
+var server_usa = new srnet(cmds);
+var server_asia = new srnet(cmds);
+var server_europe = new srnet(cmds);
 var _an = ["usa","asia","europe"];
 setInterval(()=>{
   var i = 0;

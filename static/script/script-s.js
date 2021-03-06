@@ -1,0 +1,1 @@
+var serv = location.search.replace(/^\?/,"");

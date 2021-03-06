@@ -8,7 +8,6 @@ for(var i = 0; i < 100; i++){
   ctx.fillRect(Math.floor(Math.random()*ctx.canvas.width),Math.floor(Math.random()*ctx.canvas.height),1,1);
 }
 document.body.style.background = "url(\'" + ctx.canvas.toDataURL() + "\')";
-location = stone().canvas.toDataURL();
 };
 function dirt(){
   var canvas = document.createElement("canvas");
@@ -22,15 +21,39 @@ function dirt(){
   }
   return ctx;
 }
-function copper(){
+function stone(){
   var canvas = document.createElement("canvas");
   canvas.width = canvas.height = 25;
   var ctx = canvas.getContext("2d");
   ctx.fillStyle = "#333";
   ctx.fillRect(0,0,1000,1000);
-  ctx.fillStyle = "#440";
-  for(var i = 0; i < 5; i++){
-    ctx.fillRect(Math.floor(Math.random()*ctx.canvas.width),Math.floor(Math.random()*ctx.canvas.height),4,4);
+  ctx.fillStyle = "#383838";
+  for(var i = 0; i < 25; i++){
+    ctx.fillRect(Math.floor(Math.random()*ctx.canvas.width),Math.floor(Math.random()*ctx.canvas.height),2,2);
+  }
+  return ctx;
+}
+function coal(){
+  var canvas = document.createElement("canvas");
+  canvas.width = canvas.height = 25;
+  var ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#333";
+  ctx.fillRect(0,0,1000,1000);
+  ctx.fillStyle = "#000";
+  for(var i = 0; i < 25; i++){
+    ctx.fillRect(Math.floor(Math.random()*ctx.canvas.width),Math.floor(Math.random()*ctx.canvas.height),2,2);
+  }
+  return ctx;
+}
+function iron(){
+  var canvas = document.createElement("canvas");
+  canvas.width = canvas.height = 25;
+  var ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#333";
+  ctx.fillRect(0,0,1000,1000);
+  ctx.fillStyle = "#444";
+  for(var i = 0; i < 25; i++){
+    ctx.fillRect(Math.floor(Math.random()*ctx.canvas.width),Math.floor(Math.random()*ctx.canvas.height),2,2);
   }
   return ctx;
 }
@@ -41,8 +64,8 @@ function copper(){
   ctx.fillStyle = "#333";
   ctx.fillRect(0,0,1000,1000);
   ctx.fillStyle = "#440";
-  for(var i = 0; i < 5; i++){
-    ctx.fillRect(Math.floor(Math.random()*ctx.canvas.width),Math.floor(Math.random()*ctx.canvas.height),4,4);
+  for(var i = 0; i < 25; i++){
+    ctx.fillRect(Math.floor(Math.random()*ctx.canvas.width),Math.floor(Math.random()*ctx.canvas.height),2,2);
   }
   return ctx;
 }

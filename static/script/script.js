@@ -3,7 +3,6 @@ function getId(id) {
 }
 
 var cli;
-getId("server").onchange = (evt)=>{
 function f(){
 var _xhr = new XMLHttpRequest();
 _xhr.open("GET","/users.json");
@@ -15,6 +14,9 @@ for(var elem of getId("server").getElementsByTagName("option")){
 };
 _xhr.send();
 }
+setInterval(f,1000);
+getId("server").onchange = (evt)=>{
+  /*
 if(cli){
   if(cli.connected){
     cli.send("0000100","0");
@@ -23,19 +25,13 @@ if(cli){
 cli = new Client(evt.target.value);
 
 cli.onopen = id =>{
-  f();
-  log("/server-" + cli.where + ": SRNET Connection " + new Date().toUTCString() + "\n" +
-          "     Language: " + navigator.language + "\n" +
-          "     Platform: " + navigator.platform + "\n" +
-          "     Browser: " + navigator.userAgent.split("/").filter((x,i,d)=>{
-            return d.length - i < 3;
-          }).join("/"));
   //cli.send("0000000",id);
 };
 
 cli.onmessage = d =>{
   //log("#" + d.statusCode + " " + d.statusText + " -> " + d.message);
 }
+  */
 };
 getId("server").onchange({target:getId("server")});
 
@@ -49,9 +45,9 @@ username.addEventListener('change', e => {
 });
 
 getId('solo').addEventListener('click', e => {
-	location.href = '/solo';
+	location.href = '/solo?' + getId("server").value + "%7C" + encodeURIComponent(getId("username-input").value);
 });
 
 getId('multiplayer').addEventListener('click', e => {
-	location.href = '/multiplayer';
+	location.href = '/multiplayer?' + getId("server").value + "|" + encodeURIComponent(getId("username-input").value);
 });

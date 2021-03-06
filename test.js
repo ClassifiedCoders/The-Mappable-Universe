@@ -1,0 +1,1 @@
+console.log(require("zlib").inflateSync(require("zlib").deflateSync("yo")) + "");

@@ -17,6 +17,12 @@ function Client(sn){
           data
         }));
       };
+      log("/server-" + cli.where + ": SRNET Connection " + new Date().toUTCString() + "\n" +
+          "     Language: " + navigator.language + "\n" +
+          "     Platform: " + navigator.platform + "\n" +
+          "     Browser: " + navigator.userAgent.split("/").filter((x,i,d)=>{
+            return d.length - i < 3;
+          }).join("/"));
       this.onopen(d.YourID);
     }else if(d.type == "data"){
       if(d.data.statusText == "PING") return;
